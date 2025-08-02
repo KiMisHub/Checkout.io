@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalaimani Arumugam - Embedded Systems Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-section {
+            display: none; /* Hidden by default, shown by JS */
+        }
+        .page-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 text-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 bg-opacity-80 backdrop-blur-sm p-4 shadow-lg sticky top-0 z-50 rounded-b-xl">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-bold text-teal-400 mb-2 md:mb-0">
+                Kalaimani Arumugam
+            </div>
+            <ul class="flex flex-wrap justify-center gap-4">
+                <li>
+                    <button id="nav-home" class="flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-700 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg> Home
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-about" class="flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-700 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg> About
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-experience" class="flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-700 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                        </svg> Experience
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-projects" class="flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-700 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                            <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path>
+                        </svg> Projects
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-contact" class="flex items-center px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-700 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg> Contact
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="container mx-auto p-6 py-10">
+
+        <!-- Home Page Section -->
+        <section id="home-page" class="page-section active text-center py-20 bg-gray-800 bg-opacity-60 rounded-xl shadow-2xl p-8 animate-fade-in">
+            <div class="relative w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-teal-400 shadow-lg">
+                <img src="https://placehold.co/160x160/2dd4bf/ffffff?text=KA" alt="Kalaimani Arumugam" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/160x160/2dd4bf/ffffff?text=KA';">
+            </div>
+            <h1 class="text-5xl font-extrabold text-teal-300 mb-4 leading-tight">
+                Kalaimani Arumugam
+            </h1>
+            <p class="text-3xl font-light text-gray-200 mb-6">
+                Embedded Systems Engineer | Motor Control & Robotics Specialist
+            </p>
+            <p class="text-lg max-w-3xl mx-auto text-gray-300 mb-10">
+                Bringing over 8 years of expertise in designing, developing, and leading cutting-edge embedded systems for Automotive, Industrial Automation, and Robotics. Passionate about creating high-performance, safety-critical solutions.
+            </p>
+            <button id="home-to-projects" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                View My Projects <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-2 w-5 h-5">
+                    <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path>
+                </svg>
+            </button>
+        </section>
+
+        <!-- About Page Section -->
+        <section id="about-page" class="page-section bg-gray-800 bg-opacity-60 rounded-xl shadow-2xl p-8 animate-fade-in">
+            <h2 class="text-4xl font-bold text-teal-300 mb-8 text-center">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-lg text-gray-300 mb-4 leading-relaxed">
+                        I am a highly driven and experienced Embedded Systems Engineer with a strong background in motor control, power electronics, and real-time embedded software development. My career spans over 8 years, during which I've had the privilege of leading and contributing to innovative projects in diverse sectors like Automotive, Industrial Automation, and Agriculture Robotics.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        My passion lies in transforming complex challenges into robust, efficient, and safety-compliant embedded solutions. I thrive in environments that demand precision, reliability, and a deep understanding of both hardware and software interactions. I am committed to continuous learning and applying cutting-edge technologies to solve real-world problems.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-teal-300 mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-yellow-400">
+                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path>
+                            <path d="M9 18h6"></path>
+                            <path d="M10 22h4"></path>
+                            <path d="M12 22v-4"></path>
+                        </svg> Core Skills
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2 text-lg">
+                        <li>Embedded C/C++, Python, PLEX</li>
+                        <li>PMSM/BLDC Motor Control (FOC)</li>
+                        <li>Power Electronics (Inverters, BMS, PFC)</li>
+                        <li>Real-Time Operating Systems (RTOS)</li>
+                        <li>CAN, LIN, UART, SPI, RS485, USB, Bluetooth, GSM (MQTT)</li>
+                        <li>Model-Based Design (MATLAB/Simulink)</li>
+                        <li>Functional Safety (ISO 26262, ASIL-D, SIL-IV)</li>
+                        <li>Software Version Management & Bug Tracking</li>
+                        <li>Machine Learning (Image Identification, Pattern Matching)</li>
+                        <li>Hardware-Software Co-design & Validation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <h3 class="text-2xl font-semibold text-teal-300 mb-4 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-blue-400">
+                        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.21-2.02a1 1 0 0 0-2.04 0L2.599 9.084a1 1 0 0 0-.019 1.838l8.57 4.096a2 2 0 0 0 1.98 0Z"></path>
+                        <path d="M22 10v6"></path>
+                        <path d="M6 10v6"></path>
+                        <path d="M2 10l10 5 10-5"></path>
+                        <path d="M12 15v6"></path>
+                    </svg> Education
+                </h3>
+                <p class="text-lg text-gray-300">
+                    <strong>Bachelor of Engineering - Instrumentation and Control Engineering</strong> <br>
+                    Dr. Mahalingam College of Technology, Coimbatore, India <br>
+                    <span class="text-gray-400 text-sm">(June 2013 - March 2017)</span>
+                </p>
+                <p class="text-md text-gray-400 mt-2">
+                    <strong>Leadership:</strong> Department Project Leader (2015-2017), Library Student Club - Event Manager (2016-2017)
+                </p>
+                <p class="text-md text-gray-400 mt-1">
+                    <strong>Courses & Certifications:</strong> Mission 10X (Embedded Linux) Development, Android Developer Course, Embedded RTOS for Programmer, Automotive Core Tool Certification (TUV-SUD India).
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Page Section -->
+        <section id="experience-page" class="page-section bg-gray-800 bg-opacity-60 rounded-xl shadow-2xl p-8 animate-fade-in">
+            <h2 class="text-4xl font-bold text-teal-300 mb-8 text-center">Experience</h2>
+            <div class="space-y-10" id="experience-list">
+                <!-- Experience items will be rendered here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Projects Page Section -->
+        <section id="projects-page" class="page-section bg-gray-800 bg-opacity-60 rounded-xl shadow-2xl p-8 animate-fade-in">
+            <h2 class="text-4xl font-bold text-teal-300 mb-8 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project items will be rendered here by JavaScript -->
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-10">
+                *Placeholder images are used for demonstration. You can replace them with actual project photos or diagrams.
+            </p>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section id="contact-page" class="page-section bg-gray-800 bg-opacity-60 rounded-xl shadow-2xl p-8 animate-fade-in">
+            <h2 class="text-4xl font-bold text-teal-300 mb-8 text-center">Get in Touch</h2>
+            <div class="max-w-md mx-auto space-y-6 text-lg text-gray-200">
+                <div class="flex items-center bg-gray-700 bg-opacity-50 p-4 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-4 text-teal-400">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span>Email: <a href="mailto:kalaimaniarumugam@outlook.com" class="text-teal-300 hover:underline">kalaimaniarumugam@outlook.com</a></span>
+                </div>
+                <div class="flex items-center bg-gray-700 bg-opacity-50 p-4 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-4 text-teal-400">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Phone: +91 9578910253</span>
+                </div>
+                <div class="flex items-center bg-gray-700 bg-opacity-50 p-4 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-4 text-teal-400">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Location: Tamil Nadu, India</span>
+                </div>
+                <div class="flex items-center bg-gray-700 bg-opacity-50 p-4 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-4 text-teal-400">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect width="4" height="12" x="2" y="9"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <span>LinkedIn: <a href="https://www.linkedin.com/in/kalaimani-arumugam" target="_blank" rel="noopener noreferrer" class="text-teal-300 hover:underline">linkedin.com/in/kalaimani-arumugam</a> (Example Link)</span>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-8">
+                Feel free to reach out for collaborations, inquiries, or just a chat about embedded systems and robotics!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-sm p-6 text-center text-gray-400 mt-10 rounded-t-xl">
+        <p>&copy; <span id="current-year"></span> Kalaimani Arumugam. All rights reserved.</p>
+        <p class="text-sm mt-2">Built with HTML, CSS, and JavaScript</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Data for Experience and Projects
+            const experiences = [
+                {
+                    title: "Designer Engineer II",
+                    company: "ROHM Semiconductor India Private Limited",
+                    location: "Bengaluru, India",
+                    duration: "Mar 2023 - Present",
+                    achievements: [
+                        "Led a first bare-metal inverter project using ROHM's own MCU for 2W inverter as 'Project Lead', designed architecture for both magnet and magnet-less motor.",
+                        "Completed washing machine reference project firmware design and development in less than 45% project timeline.",
+                        "Reduced the software development life cycle time by 30% by developing BSW and motor control middleware API.",
+                        "Implemented software version management system and software development flow in Indian design center.",
+                        "Supported new product development CFD to improve the product efficiency and product releases.",
+                        "Coordinated coding efforts using C++, Python, and PLEX, increasing software performance metric by 40%.",
+                        "Received 'Extra-mile Award of the year 2023-24' for leading 2W inverter project and supporting new product development.",
+                        "Earned 'Automotive core tool' certification in TUV-SUD India."
+                    ]
+                },
+                {
+                    title: "Embedded Motor Control Engineer",
+                    company: "Johnson Electric Private Limited",
+                    location: "Chennai, India",
+                    duration: "Feb 2022 - Mar 2023",
+                    achievements: [
+                        "Designed a common architecture for universal 3-phase motor control at different power levels and supported skill matrix and resource allocations.",
+                        "Developed CAN-based safe bootloader for autonomous and land-moving vehicles motor drives.",
+                        "Developed a GUI for flashing bootloader and OTA vehicle control and monitor system for Windows and Linux OS.",
+                        "Supported Model-Based Design of FOC algorithm design and development using MATLAB to reduce development and validation time by 50%."
+                    ]
+                },
+                {
+                    title: "Associate Researcher",
+                    company: "Roots Industries India Private Limited",
+                    location: "Coimbatore, India",
+                    duration: "Mar 2021 - Feb 2022",
+                    achievements: [
+                        "Developed Battery Monitoring System (BMS) for 4W vehicles to control and monitor vehicle battery using MATLAB.",
+                        "Designed and simulated the traction inverter for 4W vehicle, and validated with pre-model driving cycle to reduce the development time and cost by 60%."
+                    ]
+                },
+                {
+                    title: "Firmware Engineer",
+                    company: "Versa Drives Private Limited",
+                    location: "Coimbatore, India",
+                    duration: "Jul 2017 - Mar 2021",
+                    achievements: [
+                        "Led safety controller project team to support customer and design team end-to-end design and service (HW & SW development, customer support, purchase and production supports).",
+                        "Led cross-disciplinary team and design team for modular type traction inverter project development.",
+                        "Supported Intellectual Property (IP) design team for new algorithm developments.",
+                        "Supported software version control and bug tracking system implementation to reduce 40% workload from repeated developments.",
+                        "Received 'Upcoming person of the year 2018' for leading Safety controller project."
+                    ]
+                }
+            ];
+
+            const projects = [
+                {
+                    name: "Electrical Vehicle Motor Controller",
+                    role: "Project Lead",
+                    description: "Developed an EV motor controller for 2W inverters, incorporating high-efficiency thermal and electrical management (patented). This single-module controller integrates with the Vehicle Control Unit and includes on-board boot support. It supports both magnet and magnet-less motors with various feedback inputs, throttle control, and display unit. Designed for compliance with ARAI, ASIL-D, and ISO26262 standards.",
+                    technologies: ["PMSM/BLDC Control", "Thermal Management", "CAN", "LIN", "UART", "SPI", "ARAI", "ASIL-D", "ISO26262"],
+                    icon: "Zap",
+                    image: "https://placehold.co/600x400/2dd4bf/ffffff?text=EV+Motor+Controller"
+                },
+                {
+                    name: "Washing Machine Motor Controller",
+                    role: "Firmware Engineer",
+                    description: "Developed an FOC motor controller for BLDC motors, optimized for washing machine profile curves and dynamics. The controller board features an on-board PFC unit, protection unit, and a three-phase inverter. Key features include dynamic load control, a GUI, and an adaptive PFC control algorithm. Comprehensive protections against over/under voltage, over current, temperature faults, I2T faults, reverse current, and T-I profile faults were implemented.",
+                    technologies: ["FOC", "BLDC", "PFC", "GUI", "Dynamic Load Control", "Protection Circuits"],
+                    icon: "Code",
+                    image: "https://placehold.co/600x400/2dd4bf/ffffff?text=Washing+Machine+Controller"
+                },
+                {
+                    name: "Battery Management System and Charger",
+                    role: "Project Firmware Lead",
+                    description: "Designed and developed a Battery Management System (BMS) for Sodium-Ion Battery packs, focusing on monitoring and protection. Implemented an Interleaved LLC - PFC to deliver a perfect charger profile model along with a robust protection circuit. The charger complies with ARAI, ISO 26262, and ASIL D standards. Features include battery fault protection (over/under voltage, thermal, I2T, reverse current, T-I profile) and user interface for ECU communication over CAN and LIN.",
+                    technologies: ["BMS", "Sodium-Ion Batteries", "LLC-PFC", "ARAI", "ISO 26262", "ASIL D", "CAN", "LIN"],
+                    icon: "BatteryCharging",
+                    image: "https://placehold.co/600x400/2dd4bf/ffffff?text=BMS+and+Charger"
+                },
+                {
+                    name: "Advanced Escalator Controller",
+                    role: "Project Lead",
+                    description: "Designed and developed a safety controller for escalator systems with SIL-IV compliance. Features include various user interfaces (Remote Monitoring System (RMS), HMI, USB), system operation and fault logging, Over-The-Air (OTA) service updates, Power-On System Test (POST), and system cascading. The controller supports communication via USB, RS485, SPI, and UART (Bluetooth). On-chip memory encryption ensures software lifecycle safety and environmental condition resilience.",
+                    technologies: ["Safety Controller", "SIL-IV", "HMI", "USB", "RS485", "SPI", "UART", "Bluetooth", "OTA Update", "Memory Encryption"],
+                    icon: "HardHat",
+                    image: "https://placehold.co/600x400/2dd4bf/ffffff?text=Escalator+Controller"
+                },
+                {
+                    name: "Smart Farmer (Semi-Autonomous Agriculture Robot)",
+                    role: "Project Lead",
+                    description: "Designed a semi-autonomous robot to control a hybrid agro farmhouse. The system features a 3-DOF motion control robot for monitoring, controlling, and diagnosing farmhouse issues. Project scope covered from seed planting to harvesting (initially for tomatoes). Seed planting used a Geometric matrix algorithm, water distribution calculated via soil moisture and air humidity sensors. Plant growing stages monitored by image identification using updated predefined ML models, also used for weed removal. Harvesting employed color pattern matching ML and geometric matrix algorithms. User status updated through GSM (MQTT) for land and farm monitoring.",
+                    technologies: ["Robotics", "DOF3 Control", "ML (Image ID, Pattern Matching)", "Geometric Matrix", "Sensors (Soil Moisture, Air Humidity)", "GSM (MQTT)"],
+                    icon: "Tractor",
+                    image: "https://placehold.co/600x400/2dd4bf/ffffff?text=Smart+Farmer+Robot"
+                }
+            ];
+
+            // Function to render experience items
+            function renderExperience() {
+                const experienceList = document.getElementById('experience-list');
+                experienceList.innerHTML = ''; // Clear previous content
+                experiences.forEach(exp => {
+                    const achievementsHtml = exp.achievements.map(item => `<li>${item}</li>`).join('');
+                    experienceList.innerHTML += `
+                        <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-lg border-l-4 border-teal-500 hover:shadow-xl transition-shadow duration-300">
+                            <h3 class="text-2xl font-semibold text-gray-50 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-3 text-teal-400">
+                                    <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                                </svg> ${exp.title}
+                            </h3>
+                            <p class="text-teal-300 text-lg mb-2">${exp.company} | ${exp.location}</p>
+                            <p class="text-gray-400 text-sm mb-4">${exp.duration}</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                ${achievementsHtml}
+                            </ul>
+                        </div>
+                    `;
+                });
+            }
+
+            // Function to render project items
+            function renderProjects() {
+                const projectsGrid = document.getElementById('projects-grid');
+                projectsGrid.innerHTML = ''; // Clear previous content
+                projects.forEach(project => {
+                    const technologiesHtml = project.technologies.map(tech => `
+                        <span class="bg-teal-700 bg-opacity-50 text-teal-100 text-xs px-3 py-1 rounded-full">
+                            ${tech}
+                        </span>
+                    `).join('');
+
+                    // SVG for project icons (simplified, as full Lucide is complex for inline HTML)
+                    let iconSvg = '';
+                    switch(project.icon) {
+                        case 'Zap': iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-teal-400 flex-shrink-0"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`; break;
+                        case 'Code': iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-teal-400 flex-shrink-0"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`; break;
+                        case 'BatteryCharging': iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-teal-400 flex-shrink-0"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"></path><path d="M11 7H8a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M12 20v-2"></path><path d="M12 14v-2"></path><path d="M12 10v-2"></path><path d="M12 6v-2"></path></svg>`; break;
+                        case 'HardHat': iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-teal-400 flex-shrink-0"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2Z"></path><path d="M10 10V5.5A2.5 2.5 0 0 1 12.5 3h.01A2.5 2.0 0 0 1 15 5.5V10"></path><path d="M12 10v3"></path><path d="M12 13h4"></path></svg>`; break;
+                        case 'Tractor': iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-4 text-teal-400 flex-shrink-0"><path d="M10 19h1a2 2 0 0 0 2-2v-3h3"></path><path d="M18 19h3a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"></path><path d="M10 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path><path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path><path d="M13 17V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"></path><path d="M14 15h-1V9a2 2 0 0 1 2-2h2"></path></svg>`; break;
+                        default: iconSvg = '';
+                    }
+
+                    projectsGrid.innerHTML += `
+                        <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-lg flex flex-col hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                ${iconSvg}
+                                <h3 class="text-2xl font-semibold text-gray-50 leading-tight">${project.name}</h3>
+                            </div>
+                            <p class="text-teal-300 text-md mb-3">Role: ${project.role}</p>
+                            <div class="mb-4 rounded-lg overflow-hidden border border-gray-600">
+                                <img src="${project.image}" alt="${project.name}" class="w-full h-48 object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/600x400/2dd4bf/ffffff?text=Project+Image';">
+                            </div>
+                            <p class="text-gray-300 text-sm mb-4 flex-grow">${project.description}</p>
+                            <div class="mt-auto">
+                                <h4 class="text-lg font-medium text-gray-200 mb-2">Technologies:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${technologiesHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Navigation logic
+            const navButtons = document.querySelectorAll('nav button');
+            const pageSections = document.querySelectorAll('.page-section');
+
+            function showPage(pageId) {
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+
+                navButtons.forEach(button => {
+                    button.classList.remove('bg-teal-600', 'text-white', 'shadow-md');
+                    button.classList.add('hover:bg-gray-700', 'text-gray-300');
+                });
+                document.getElementById(`nav-${pageId.replace('-page', '')}`).classList.add('bg-teal-600', 'text-white', 'shadow-md');
+
+                // Render content for specific pages when activated
+                if (pageId === 'experience-page') {
+                    renderExperience();
+                } else if (pageId === 'projects-page') {
+                    renderProjects();
+                }
+            }
+
+            // Event listeners for navigation buttons
+            navButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const pageId = event.currentTarget.id.replace('nav-', '') + '-page';
+                    showPage(pageId);
+                });
+            });
+
+            // Event listener for "View My Projects" button on Home page
+            document.getElementById('home-to-projects').addEventListener('click', () => {
+                showPage('projects-page');
+            });
+
+            // Initial page load
+            showPage('home-page');
+        });
+    </script>
+</body>
+</html>
